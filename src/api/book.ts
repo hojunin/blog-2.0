@@ -7,7 +7,6 @@ export const fetchBooks = async () => {
     path: BOOK,
     config: { cache: 'no-cache', method: 'GET' },
   });
-  console.log('🚀 ~ file: book.ts:7 ~ fetchBooks ~ response:', response);
   return response;
 };
 export const searchBooks = () => {};
