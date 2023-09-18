@@ -1,4 +1,5 @@
 import { ValueOf } from '@/types/common';
+import { BASE_URL } from './urls';
 
 interface FetcherRequest {
   path: string;
@@ -48,7 +49,7 @@ export const fetcher = async <T>({
   config,
 }: FetcherRequest): Promise<T> => {
   try {
-    const response = await fetch(`http://localhost:3000${path}`, {
+    const response = await fetch(`${BASE_URL}${path}`, {
       ...defaultConfig,
       ...config,
     });
