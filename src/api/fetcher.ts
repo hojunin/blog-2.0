@@ -48,7 +48,7 @@ export const fetcher = async <T>({
   config,
 }: FetcherRequest): Promise<T> => {
   try {
-    const response = await fetch(`${path}`, {
+    const response = await fetch(`http://localhost:3000/${path}`, {
       ...defaultConfig,
       ...config,
     });

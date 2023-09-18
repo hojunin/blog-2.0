@@ -1,1 +1,1 @@
-export const BOOK = 'book';
+export const BOOK = 'api/book';

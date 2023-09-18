@@ -3,7 +3,10 @@ import { fetcher } from './fetcher';
 import { BOOK } from './urls';
 
 export const fetchBooks = async () => {
-  const response = await fetcher<Book[]>({ path: BOOK });
+  const response = await fetcher<Book[]>({
+    path: BOOK,
+    config: { cache: 'no-cache', method: 'GET' },
+  });
   console.log('🚀 ~ file: book.ts:7 ~ fetchBooks ~ response:', response);
   return response;
 };
