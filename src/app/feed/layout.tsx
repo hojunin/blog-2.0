@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import React from 'react';
 
 const FeedLayout = ({ children }: { children: React.ReactNode }) => {
@@ -5,3 +6,8 @@ const FeedLayout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default FeedLayout;
+
+export const metadata: Metadata = {
+  title: '피드',
+  description: '쓰고싶은 말 그때그때 쓰는 페이지',
+};
