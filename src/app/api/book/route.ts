@@ -19,6 +19,7 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   const payload = await request.json();
+
   if (!isCreateBookEntity(payload)) {
     return NextResponse.json(
       {

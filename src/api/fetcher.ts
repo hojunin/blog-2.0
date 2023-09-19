@@ -6,7 +6,7 @@ interface FetcherRequest {
   config?: FetchConfig;
 }
 
-export const HTTP_METHOD_TYPE = {
+export const HttpMethodType = {
   GET: 'GET',
   POST: 'POST',
   PATCH: 'PATCH',
@@ -14,22 +14,25 @@ export const HTTP_METHOD_TYPE = {
   DELETE: 'DELETE',
 } as const;
 
+export const HttpCachePolicy = {
+  DEFAULT: 'default',
+  FORCE_CACHE: 'force-cache',
+  NO_CACHE: 'no-cache',
+  NO_STORE: 'no-store',
+  ONLY_IF_CACHE: 'only-if-cached',
+  RELOAD: 'reload',
+} as const;
+
 interface FetchConfig {
-  method: ValueOf<typeof HTTP_METHOD_TYPE>;
+  method: ValueOf<typeof HttpMethodType>;
   headers?: any;
   mode?: 'cors' | 'navigate' | 'no-cors' | 'same-origin';
-  cache?:
-    | 'default'
-    | 'force-cache'
-    | 'no-cache'
-    | 'no-store'
-    | 'only-if-cached'
-    | 'reload';
+  cache?: ValueOf<typeof HttpCachePolicy>;
   body?: any;
 }
 
 const defaultConfig: FetchConfig = {
-  method: HTTP_METHOD_TYPE.GET,
+  method: HttpMethodType.GET,
   cache: 'default', // SSR 타입에 따라 분기
   mode: 'cors',
   headers: {
