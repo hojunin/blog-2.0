@@ -5,12 +5,14 @@ import { BOOK } from '../urls';
 import { revalidateTag } from 'next/cache';
 
 export const createBook = async (body: FormData) => {
-  const response = await fetcher<Book>({
-    path: BOOK,
-    config: { method: HttpMethodType.POST, body },
-  });
+  try {
+    const response = await fetcher<Book>({
+      path: BOOK,
+      config: { method: HttpMethodType.POST, body },
+    });
 
-  if (response) {
-    revalidateTag('book');
-  }
+    if (response) {
+      revalidateTag('book');
+    }
+  } catch (error) {}
 };

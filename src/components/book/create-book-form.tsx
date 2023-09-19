@@ -8,6 +8,8 @@ const CreateBookForm = () => {
   const { value: description, onChangeInput: onChangeDescription } = useInput();
   const { value: quickDescription, onChangeInput: onChangeQuickDescription } =
     useInput();
+  const { value: author, onChangeInput: onChangeAuthor } = useInput();
+  const { value: coverImage, onChangeInput: onChangeCoverImage } = useInput();
 
   return (
     <form action={createBook} className="flex flex-col gap-y-3">
@@ -33,6 +35,22 @@ const CreateBookForm = () => {
         required
         value={quickDescription}
         onChange={onChangeQuickDescription}
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+      />
+      <input
+        name="author"
+        type="text"
+        required
+        value={author}
+        onChange={onChangeAuthor}
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+      />
+      <input
+        name="coverImage"
+        type="text"
+        required
+        value={coverImage}
+        onChange={onChangeCoverImage}
         className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
       />
 
