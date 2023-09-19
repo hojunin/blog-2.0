@@ -10,18 +10,27 @@ const CreateBookForm = () => {
     useInput();
 
   return (
-    <form action={createBook} className="flex">
+    <form action={createBook} className="flex flex-col gap-y-3">
       <input
+        name="title"
+        type="text"
         value={title}
+        required
         onChange={onChangeTitle}
         className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
       />
       <input
+        name="description"
+        type="text"
+        required
         value={description}
         onChange={onChangeDescription}
         className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
       />
       <input
+        name="quickDescription"
+        type="text"
+        required
         value={quickDescription}
         onChange={onChangeQuickDescription}
         className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"

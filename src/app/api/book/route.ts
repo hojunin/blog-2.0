@@ -1,5 +1,7 @@
+import { isCreateBookEntity } from '@/types/typeGuards/book';
 import handleDataBase from '@/utils/database';
-import { NextResponse } from 'next/server';
+import { extractValues } from '@/utils/database/entity';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
   const connection = await handleDataBase();
@@ -15,22 +17,32 @@ export async function GET() {
   return NextResponse.json(response);
 }
 
-export async function POST() {
-  const connection = await handleDataBase();
+export async function POST(request: NextRequest) {
+  const payload = await request.json();
+  if (!isCreateBookEntity(payload)) {
+    return NextResponse.json(
+      {
+        message: '데이터 형식이 맞지 않습니다.',
+      },
+      { status: 400 },
+    );
+  }
 
+  const connection = await handleDataBase();
+  const queryKey = [
+    'title',
+    'quickDescription',
+    'description',
+    'author',
+    'coverImage',
+    'links',
+    'tags',
+  ];
   const insertQuery = `
-    INSERT INTO book (title, description, quickDescription, author, coverImage, links, tags)
+    INSERT INTO book (${queryKey.join(', ')})
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
-  const values = [
-    'title_test',
-    'description_test',
-    'quick_description_test',
-    'author_test',
-    'https://hojunin.com',
-    JSON.stringify({}),
-    JSON.stringify({}),
-  ];
+  const values = extractValues(payload, queryKey);
 
   const response = await new Promise((resolve, reject) => {
     connection.query(insertQuery, values, (error, result) => {
