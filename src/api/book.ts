@@ -1,4 +1,4 @@
-import { Book } from '@/types/book';
+import { Book, NaverBook } from '@/types/book';
 import { fetcher } from './fetcher';
 import { BOOK } from './urls';
 
@@ -14,9 +14,9 @@ export const searchBooks = () => {};
 export const updateBook = () => {};
 export const deleteBook = () => {};
 
-export const searchBookInAladin = async (query: string) => {
-  const response = await fetcher({
-    path: `api/book/aladin?query=${query}`,
+export const searchBookInNaver = async (query: string) => {
+  const response = await fetcher<NaverBook[]>({
+    path: `api/book/naver-book-search?query=${query}`,
   });
 
   return response;

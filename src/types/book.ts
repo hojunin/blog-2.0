@@ -33,3 +33,15 @@ export interface CreateBookEntity {
   quickDescription: string;
   description: string;
 }
+
+export interface NaverBook {
+  title: string;
+  link: string;
+  image: string;
+  author: string;
+  discount: string;
+  publisher: string;
+  pubdate: string;
+  isbn: string;
+  description: string;
+}

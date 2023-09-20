@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 interface Props extends React.HtmlHTMLAttributes<HTMLLIElement> {
-  book: Book;
+  book: Partial<Book>;
 }
 
 const BookListItem = ({ book, ...props }: Props) => {

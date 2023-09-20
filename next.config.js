@@ -8,6 +8,7 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'asset-server.vercel.app',
       'image.aladin.co.kr',
+      'shopping-phinf.pstatic.net',
     ],
   },
   experimental: {
