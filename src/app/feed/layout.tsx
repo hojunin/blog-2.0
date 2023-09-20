@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import React from 'react';
 
 const FeedLayout = async ({ children }: { children: React.ReactNode }) => {
-  return <div className="px-14 py-10">{children}</div>;
+  return <div>{children}</div>;
 };
 
 export default FeedLayout;

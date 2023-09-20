@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="px-5 py-5 sticky top-0 z-50 border-b-2 border-border-color bg-black flex items-center justify-between">
+    <header className="px-5 py-5 sticky top-0 z-50 border-b-2 border-border-color bg-black flex items-center justify-between sm:py-5 sm:px-5 md:px-8 lg:px-24 xl:px-40">
       <Link className="text-white text-xl tracking-widest" href={'/'}>
         HJINN
       </Link>

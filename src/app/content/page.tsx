@@ -1,4 +1,3 @@
-import BasicCard from '@/components/common/card/basic-card';
 import Link from 'next/link';
 import React from 'react';
 
