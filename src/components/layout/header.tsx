@@ -6,15 +6,15 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="px-5 py-5 sticky top-0 z-50 border-b-2 border-b-slate-400 bg-white flex items-center justify-between">
-      <Link className="tracking-wider text-black" href={'/'}>
+    <header className="px-5 py-5 sticky top-0 z-50 border-b-2 border-border-color bg-black flex items-center justify-between">
+      <Link className="text-white text-xl tracking-widest" href={'/'}>
         HJINN
       </Link>
 
       <nav className="flex gap-3">
         <Link
           className={`text-lg no-underline cursor-pointer font-bold ${
-            pathname === '/feed' ? 'text-emerald-300' : 'text-gray-400'
+            pathname === '/feed' ? 'text-primary-color' : 'text-disabled-color'
           }`}
           href={'/feed'}
         >
@@ -22,7 +22,9 @@ const Header = () => {
         </Link>
         <Link
           className={`text-lg no-underline cursor-pointer font-bold ${
-            pathname === '/content' ? 'text-emerald-300' : 'text-gray-400'
+            pathname === '/content'
+              ? 'text-primary-color'
+              : 'text-disabled-color'
           }`}
           href={'/content'}
         >

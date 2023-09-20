@@ -3,7 +3,7 @@ import { DATE, ID } from './common';
 export interface Feed {
   id: ID;
   description: string;
-  image?: URL;
+  image?: string;
   created: DATE;
 }
 

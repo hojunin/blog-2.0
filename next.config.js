@@ -4,7 +4,7 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
-    domains: ['avatars.githubusercontent.com'],
+    domains: ['avatars.githubusercontent.com', 'asset-server.vercel.app'],
   },
   experimental: {
     serverActions: true,

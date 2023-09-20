@@ -4,7 +4,7 @@ import React from 'react';
 const FeedPage = () => {
   return (
     <div>
-      <h1>피드 테스트</h1>
+      <h1 className="text-h1 mb-5">피드</h1>
 
       <FeedList />
     </div>
