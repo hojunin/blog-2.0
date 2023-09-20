@@ -28,4 +28,4 @@ const SearchBookResult = ({ books }: Props) => {
   );
 };
 
-export default SearchBookResult;
+export default React.memo(SearchBookResult);
