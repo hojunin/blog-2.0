@@ -1,14 +1,13 @@
-import BookList from '@/components/book/book-list';
-import BookToast from '@/components/book/book-toast';
-import CreateBookForm from '@/components/book/create-book-form';
+import BasicCard from '@/components/common/card/basic-card';
+import Link from 'next/link';
 import React from 'react';
 
 const ContentPage = () => {
   return (
     <div>
-      <BookList />
-      <BookToast />
-      <CreateBookForm />
+      <h1 className="text-h1 mb-5">컨텐츠</h1>
+
+      <div className="grid grid-cols-3 gap-5 w-full h-24"></div>
     </div>
   );
 };
