@@ -8,10 +8,6 @@ export async function GET() {
   const response = await new Promise((resolve, reject) => {
     connection.query('SELECT * FROM feed', (error, result) => {
       if (error) {
-        console.log(
-          '🚀 ~ file: route.ts:11 ~ connection.query ~ error:',
-          error,
-        );
         return reject(error);
       }
       return resolve(result);
