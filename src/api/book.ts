@@ -13,3 +13,11 @@ export const searchBooks = () => {};
 
 export const updateBook = () => {};
 export const deleteBook = () => {};
+
+export const searchBookInAladin = async (query: string) => {
+  const response = await fetcher({
+    path: `api/book/aladin?query=${query}`,
+  });
+
+  return response;
+};
