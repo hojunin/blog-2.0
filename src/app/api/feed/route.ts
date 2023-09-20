@@ -10,7 +10,7 @@ export async function GET() {
   const connection = await handleDataBase();
   const response = await new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM feed ORDER BY created ASC',
+      'SELECT * FROM feed ORDER BY created DESC',
       (error, result) => {
         if (error) {
           return reject(error);
