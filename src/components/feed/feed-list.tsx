@@ -5,11 +5,11 @@ import FeedListItem from './feed-list-item';
 const FeedList = async () => {
   const feeds = await fetchFeeds();
   return (
-    <div>
+    <ul>
       {feeds.map((feed) => (
         <FeedListItem key={feed.id} feedItem={feed} />
       ))}
-    </div>
+    </ul>
   );
 };
 

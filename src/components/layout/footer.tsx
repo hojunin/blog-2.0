@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="px-5 py-52 min-h-fit">
-      <p>made by HOJUNIN, 2023.09.07</p>
+    <footer className="px-5 py-32 min-h-fit bg-slate-600">
+      <p>Copyright © HOJUN IN. All rights reserved</p>
     </footer>
   );
 };
