@@ -1,6 +1,7 @@
+import BookList from '@/components/book/book-list';
 import React from 'react';
 
-const BookList = () => {
+const BookPage = () => {
   return (
     <div>
       <h1 className="text-h1" />
@@ -10,4 +11,4 @@ const BookList = () => {
   );
 };
 
-export default BookList;
+export default BookPage;
