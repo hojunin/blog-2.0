@@ -10,7 +10,6 @@ const handleDataBase = async () => {
   });
 
   connection.connect();
-
   return connection;
 };
 

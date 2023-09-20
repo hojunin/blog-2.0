@@ -22,7 +22,7 @@ const CreateBookForm = () => {
         required
         disabled={pending}
         onChange={onChangeTitle}
-        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-100"
       />
       <input
         name="description"
@@ -31,7 +31,7 @@ const CreateBookForm = () => {
         disabled={pending}
         value={description}
         onChange={onChangeDescription}
-        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-100"
       />
       <input
         name="quickDescription"
@@ -40,7 +40,7 @@ const CreateBookForm = () => {
         disabled={pending}
         value={quickDescription}
         onChange={onChangeQuickDescription}
-        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-100"
       />
       <input
         name="author"
@@ -49,7 +49,7 @@ const CreateBookForm = () => {
         disabled={pending}
         value={author}
         onChange={onChangeAuthor}
-        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-100"
       />
       <input
         name="coverImage"
@@ -58,7 +58,7 @@ const CreateBookForm = () => {
         disabled={pending}
         value={coverImage}
         onChange={onChangeCoverImage}
-        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-600"
+        className="bg-slate-500 max-w-xs h-10 p-3 text-center border-white border-2 border-solid rounded-md shadow-md focus:text-blue-100"
       />
 
       <button
