@@ -1,14 +1,16 @@
 'use client';
-import useFetchBookSearch from '@/hooks/useFetchBookSearch';
 import React from 'react';
 import BookListItem from './book-list-item';
+import { NaverBook } from '@/types/book';
 
 interface Props {
-  query: string;
+  books: NaverBook[];
 }
 
-const SearchBookResult = ({ query }: Props) => {
-  const books = useFetchBookSearch(query);
+const SearchBookResult = ({ books }: Props) => {
+  if (books.length === 0) {
+    return <p className="text-h2">결과가 없습니다</p>;
+  }
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
       {books.map((book) => (

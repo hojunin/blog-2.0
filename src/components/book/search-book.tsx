@@ -1,7 +1,9 @@
 'use client';
 import useInput from '@/hooks/useInput';
-import React from 'react';
+import React, { KeyboardEvent, useState } from 'react';
 import SearchBookResult from './search-book-result';
+import { NaverBook } from '@/types/book';
+import { searchBookInNaver } from '@/api/book';
 
 const SearchBook = () => {
   const {
@@ -9,12 +11,22 @@ const SearchBook = () => {
     onChangeInput: setQuery,
     reset: resetQuery,
   } = useInput();
+  const [books, setBooks] = useState<NaverBook[]>([]);
+
+  const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
+    if (e.key === 'Enter') {
+      searchBookInNaver(query)
+        .then((result) => setBooks(result))
+        .finally(resetQuery);
+      return;
+    }
+  };
 
   return (
     <div>
-      <input value={query} onChange={setQuery} />
+      <input value={query} onChange={setQuery} onKeyPress={onKeyPress} />
 
-      <SearchBookResult query={query} />
+      <SearchBookResult books={books} />
     </div>
   );
 };
