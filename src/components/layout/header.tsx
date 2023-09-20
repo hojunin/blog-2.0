@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 
 const Header = () => {
   const pathname = usePathname();
-  console.log('🚀 ~ file: header.tsx:8 ~ Header ~ pathname:', pathname);
   return (
     <header className="px-5 py-5 sticky top-0 z-50 border-b-2 border-b-slate-400 bg-white flex items-center justify-between">
       <Link className="-tracking-wider text-black" href={'/'}>

@@ -14,5 +14,7 @@ export const createBook = async (body: FormData) => {
     if (response) {
       revalidateTag('book');
     }
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 };

@@ -1,35 +1,36 @@
+'use client';
 import React, { useEffect } from 'react';
-import { ValueOf } from 'next/dist/shared/lib/constants';
+import useToastStore, { ToastType } from '@/store/toast';
 
-export const ToastType = {
-  SUCCESS: 'success',
-  FAIL: 'fail',
-} as const;
+const TOAST_DURATION = 3000;
 
-interface ToastProps {
-  close: () => void;
-  message: string;
-  type: ValueOf<typeof ToastType>;
-}
-const Toast = ({ close, type, message }: ToastProps) => {
+const Toast = () => {
+  const { content, visible, type, setVisible, setContent } = useToastStore();
+
   useEffect(() => {
-    if (!(typeof close === 'function')) {
-      return;
-    }
-    const timeout = setTimeout(close, 3000);
+    const timeout = setTimeout(closeToast, TOAST_DURATION);
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [close]);
+  }, [visible]);
+
+  const closeToast = () => {
+    setContent('');
+    setVisible(false);
+  };
+
+  if (!visible) {
+    return <></>;
+  }
 
   return (
     <div
       className={`fixed right-20 top-100 ${
-        type === ToastType.SUCCESS ? 'bg-primary' : 'bg-error'
+        type === ToastType.SUCCESS ? 'bg-green-500' : 'bg-red-600'
       } w-300 p-20 text-white rounded-8 animate-fadeIn`}
     >
-      {message}
+      {content}
     </div>
   );
 };
