@@ -25,7 +25,9 @@ export const HttpCachePolicy = {
 
 interface FetchConfig {
   method: ValueOf<typeof HttpMethodType>;
-  headers?: any;
+  headers?: {
+    'Content-Type'?: 'application/json' | 'multipart/form-data';
+  };
   mode?: 'cors' | 'navigate' | 'no-cors' | 'same-origin';
   cache?: ValueOf<typeof HttpCachePolicy>;
   body?: any;
@@ -69,6 +71,8 @@ export const fetcher = async <T>({
 
 const handleError = (status: number) => {
   switch (status) {
+    case 400:
+      throw new Error('클라이언트 요청이 잘못되었습니다');
     case 401:
       throw new Error('인증 문제 발생');
     case 404:

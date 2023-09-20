@@ -5,6 +5,7 @@ const FeedPage = () => {
   return (
     <div>
       <h1>피드 테스트</h1>
+
       <FeedList />
     </div>
   );

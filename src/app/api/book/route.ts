@@ -1,6 +1,9 @@
 import { isCreateBookEntity } from '@/types/typeGuards/book';
 import handleDataBase from '@/utils/database';
-import { extractValues } from '@/utils/database/entity';
+import {
+  convertFormDataToObject,
+  extractValuesFromForm,
+} from '@/utils/database/entity';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
@@ -18,9 +21,8 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
-  const payload = await request.json();
-
-  if (!isCreateBookEntity(payload)) {
+  const payload = await request.formData();
+  if (!isCreateBookEntity(convertFormDataToObject(payload))) {
     return NextResponse.json(
       {
         message: '데이터 형식이 맞지 않습니다.',
@@ -43,7 +45,7 @@ export async function POST(request: NextRequest) {
     INSERT INTO book (${queryKey.join(', ')})
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
-  const values = extractValues(payload, queryKey);
+  const values = extractValuesFromForm(payload, queryKey);
 
   const response = await new Promise((resolve, reject) => {
     connection.query(insertQuery, values, (error, result) => {
