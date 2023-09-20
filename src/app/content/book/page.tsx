@@ -4,7 +4,7 @@ import React from 'react';
 const BookPage = () => {
   return (
     <div>
-      <h1 className="text-h1" />
+      <h1 className="text-h1">독서 기록</h1>
 
       <BookList />
     </div>

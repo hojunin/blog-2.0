@@ -7,7 +7,9 @@ const ContentPage = () => {
     <div>
       <h1 className="text-h1 mb-5">컨텐츠</h1>
 
-      <div className="grid grid-cols-3 gap-5 w-full h-24"></div>
+      <div className="grid grid-cols-3 gap-5 w-full h-24">
+        <Link href={'/content/book'}>책 페이지</Link>
+      </div>
     </div>
   );
 };
