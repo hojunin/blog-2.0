@@ -9,7 +9,7 @@ interface Props {
 
 const FeedListItem = ({ feedItem }: Props) => {
   return (
-    <li className=" mb-3 border-border-color border-2 p-3 rounded-lg hover:border-primary-color">
+    <li className="mb-3 border-border-color border-2 p-3 rounded-lg hover:border-primary-color">
       <div className="flex gap-3 items-center justify-start">
         <Image
           src="https://avatars.githubusercontent.com/u/18079523?v=4"
