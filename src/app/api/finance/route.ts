@@ -1,6 +1,31 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
+  const CRYPTO_INDEX_IDS = ['BTCUSDT', 'ETHUSDT'];
+
+  const fetchCryptoResponses = CRYPTO_INDEX_IDS.map((id) => {
+    return fetch(`https://binance43.p.rapidapi.com/avgPrice?symbol=${id}`, {
+      headers: {
+        'X-RapidAPI-Key': process.env['X_RAPID_API_KEY'],
+        'X-RapidAPI-Host': process.env['X_RAPID_API_HOST'],
+      },
+    });
+  });
+  const promiseCryptoResponse = await Promise.all(fetchCryptoResponses);
+  const cryptoResults = promiseCryptoResponse.map((response) =>
+    response.json(),
+  );
+  const unwrappedCryptoData = await Promise.all(cryptoResults);
+  const normalizedCryptoData = unwrappedCryptoData.map((datum, index) => {
+    return {
+      CLASS_NAME: '암호화폐',
+      KEYSTAT_NAME: index === 0 ? '비트코인' : '이더리움',
+      DATA_VALUE: Number(datum.price).toFixed(2),
+      CYCLE: new Intl.DateTimeFormat('ko-KR').format(new Date()),
+      UNIT_NAME: '달러',
+    };
+  });
+
   const FINANCE_INDEX_IDS = ['FEDFUNDS', 'NASDAQCOM', 'SP500', 'DCOILBRENTEU'];
   const FRED_API_URLS = FINANCE_INDEX_IDS.map(
     (id) =>
@@ -79,10 +104,11 @@ export async function GET() {
           UNIT_NAME: 'P',
         };
       }
+      return filteredData;
     });
 
     return NextResponse.json(
-      [...normalized, ...serializedData].sort((a, b) =>
+      [...normalized, ...serializedData, ...normalizedCryptoData].sort((a, b) =>
         b.CLASS_NAME.localeCompare(a.CLASS_NAME),
       ),
     );
