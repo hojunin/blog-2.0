@@ -1,6 +1,7 @@
 import Layout from '@/components/layout';
 import './globals.css';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import { Inter } from 'next/font/google';
 import Toast from '@/components/common/toast';
 
@@ -16,6 +17,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Toast />
         <Layout>{children}</Layout>
+        <Analytics />
       </body>
     </html>
   );
