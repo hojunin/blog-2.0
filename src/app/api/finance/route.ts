@@ -20,7 +20,7 @@ export async function GET() {
     return {
       CLASS_NAME: '암호화폐',
       KEYSTAT_NAME: index === 0 ? '비트코인' : '이더리움',
-      DATA_VALUE: Number(datum.price).toFixed(2),
+      DATA_VALUE: datum.price,
       CYCLE: new Intl.DateTimeFormat('ko-KR').format(new Date()),
       UNIT_NAME: '달러',
     };
